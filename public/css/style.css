@@ -1,0 +1,159 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+	background-image: rgba(16, 19, 37, 0.7),url("../images/background.png");	
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+
+}
+
+
+/* .tranparent {
+    opacity: 50%;
+} */
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+.profile h1{
+    padding-top: 10%;
+    text-align: left;
+    color: #ffffff;
+    font-size: 65px;
+	margin-top: 8%;
+    margin-left: 5%;
+    font-family: 'Segoe UI';
+    letter-spacing: 4px;
+}
+
+.profile h3{
+
+	color: #fff;
+	font-size: 20px;
+	font-weight: lighter;
+	margin-top: 2%;
+    margin-left: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.profile h4{
+
+	color: #fff;
+	font-size: 20px;
+	font-weight: lighter;
+	margin-top: 3%;
+    margin-left: 15%;
+}
+
+.course{
+    background-color: rgba(255, 255, 255, 0.373);
+    border-radius: 15px;
+}
+
+.Mycourse {
+    background-color: rgba(255, 255, 255, 0.685);
+    border-radius: 0;
+    
+}
+
+i.icon-red{
+    color: red;
+    vertical-align: middle;
+}
+
+i.icon-blue {
+    color: rgb(54, 54, 221);
+    vertical-align: middle;
+}
+
+.pertemuan a{
+    color: rgb(65, 65, 65);   
+}
+
+.pertemuan a:link {
+    text-decoration: none;
+}
+
+.pertemuan a:visited {
+    text-decoration: none;
+}
+
+.pertemuan a:hover {
+    text-decoration: none;
+}
+
+.pertemuan a:active {
+    text-decoration: none;
+}
+
+.linked a {
+    color: rgb(65, 65, 65);
+}
+
+.linked a:link {
+    text-decoration: none;
+}
+
+.linked a:visited {
+    text-decoration: none;
+}
+
+.linked a:hover {
+    color: rgb(16, 0, 87);
+    text-decoration: underline;
+}
+
+.linked a:active {
+    text-decoration: none;
+}
+/* 
+.contact h1{
+    padding-top: 15px;
+    text-align: left;
+    color: #fff;
+    font-size: 60px;
+	margin-top: 25%;
+    margin-left: 20%;
+    margin-bottom: 4%;
+}
+
+.contact h3{
+
+	color: #fff;
+	font-size: 23px;
+	font-weight: lighter;
+    margin-left: 22%;
+}
+
+.box{
+	align-items: baseline;
+	width:410px;
+	height: 60px;
+	padding: 0;
+    margin-top: 5%;
+	margin-left: 22%;
+}
+
+.sosmed{
+	
+	width: 70px;
+	padding-right: 25px;
+	-webkit-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+.sosmed:hover{
+	opacity: 50%;
+}
+ */
+

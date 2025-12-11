@@ -1,0 +1,28 @@
+/* Rounded corners for all cards */
+.rounded-card {
+    border-radius: 15px;
+}
+
+.card {
+    border-radius: 15px;
+}
+
+/* Minimalist styling for tab headers */
+.nav-tabs .nav-link {
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    border: none;
+    background-color: transparent;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #f8f9fa;
+    color: #007bff;
+}
+
+/* Center align tab headers */
+.nav-tabs {
+    justify-content: center;
+}

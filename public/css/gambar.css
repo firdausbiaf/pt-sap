@@ -1,0 +1,20 @@
+/* styles.css */
+
+.gambarr {
+    /* Atur lebar card sesuai kebutuhan Anda */
+    width: 430px;
+    /* Atur tinggi card sesuai kebutuhan Anda */
+    height: 650px;
+    /* Atur gaya lain untuk card, seperti border, background, dll. */
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    overflow: hidden; /* Menghindari gambar keluar dari card */
+}
+
+.gambarr img {
+    /* Menyesuaikan gambar dengan bentuk card */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Atur agar gambar tidak menjadi terlalu kecil atau terlalu besar */
+}
+
