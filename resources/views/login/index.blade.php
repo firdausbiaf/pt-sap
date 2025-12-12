@@ -22,7 +22,7 @@
 
                                     <!-- LOGO + BACKGROUND TRANSPARAN -->
                                     <div style="background: rgba(255, 255, 255, 0.45); padding: 10px 14px; border-radius: 8px;">
-                                        <img src="{{ asset('images/logo_pt_sap.jpg') }}" 
+                                        <img src="{{ asset('images/logo_pt_sap.png') }}" 
                                             alt="logo PT SAP"
                                             style="width:300px; height:auto;">
                                     </div>

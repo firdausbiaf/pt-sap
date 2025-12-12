@@ -19,9 +19,12 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #910000;">
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #1F3C78;">
     <div class="container">
-    <img src="{{ asset('images\jagad-group.png') }}" alt="logo" height="50" class="d-inline-block align-text-top">     
+            <div style="background: rgba(255, 255, 255, 0.45); padding: 10px 14px; border-radius: 8px;">
+                <img src="{{ asset('images\logo_pt_sap.png') }}" alt="logo" height="40" class="d-inline-block align-text-top">
+            </div>
+                 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>

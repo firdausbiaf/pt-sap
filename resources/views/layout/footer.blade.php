@@ -6,9 +6,9 @@
 </head>
 
 <div class="container-fluid" style="padding: 0;">
-  <footer class="text-center text-lg-start text-white" style="background-color: #910000">
+  <footer class="text-center text-lg-start text-white" style="background-color: #2a58b5">
     <!-- Section: Social media -->
-    <section class="d-flex justify-content-between p-4" style="background-color: #6F0606">
+    <section class="d-flex justify-content-between p-4" style="background-color: #1F3C78">
       <!-- Left -->
       <div class="me-5">
         <span>Get connected with us on social networks:</span>

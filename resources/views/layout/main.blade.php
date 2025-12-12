@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Djagad Land Group</title>
+    <title>PT SAP</title>
     <link rel="shortcut icon" href="images/logologo.png" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/gambar.css') }}">
@@ -104,7 +104,7 @@
   </head>
 <style>
   body{
-    background-image: url("images/bg-user2.jpg");
+    background-image: url("images/bg-login3.png");
   }
 </style>
   <body>

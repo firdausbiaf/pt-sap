@@ -13,10 +13,26 @@
                     </ol> --}}
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
-                            <img class="d-block img-fluid" src="{{ asset('images\foto-login2.png') }}" alt="First slide">
+                            <img class="d-block img-fluid" src="{{ asset('images\sap.jpg') }}" alt="First slide" style="min-height:540px">
                             <div class="carousel-caption">
-                                <h1 class="display-3 text-white">D'JAGAD LAND GROUP</h1>
-                                <h3 class="text-white text-uppercase mb-3">Make Your Living Harmony</h3>
+                                
+                                <!-- WRAPPER UTAMA -->
+                                <div style="display:inline-block; text-align:center; transform: translateX(-60px);">
+
+                                    <!-- LOGO + BACKGROUND TRANSPARAN -->
+                                    <div style="background: rgba(255, 255, 255, 0.45); padding: 10px 14px; border-radius: 8px; margin-top: 50px;">
+                                        <img src="{{ asset('images/logo_pt_sap.png') }}" 
+                                            alt="logo PT SAP"
+                                            style="width:300px; height:auto;">
+                                    </div>
+
+                                    <!-- TEXT DI BAWAH LOGO -->
+                                    <h3 class="text-white text-uppercase mb-3 animate__animated animate__fadeInUp"
+                                        style="margin-top:12px; white-space:nowrap;">
+                                        Supplier & Perdagangan Umum
+                                    </h3>
+
+                                </div>
                             </div>
                         </div>
                         {{-- <div class="carousel-item">

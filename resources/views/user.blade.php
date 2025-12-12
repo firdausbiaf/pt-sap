@@ -4,7 +4,7 @@
 
 <style>
     .card {
-        border-radius: 15px;
+        border-radius: 10px;
     }
 </style>
 
