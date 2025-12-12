@@ -44,7 +44,7 @@
     <!-- Grid column for logos -->
     <div class="col-md-6 col-lg-6 col-xl-6 mb-8">
         <!-- Content -->
-        <h6 class="text-uppercase fw-bold">D'JAGAD LAND GROUP</h6>
+        <h6 class="text-uppercase fw-bold">PT SEANTERO ARTHA PRIMA</h6>
         <hr class="mb-4 mt-2" style="width: 60px; background-color: #7c4dff; height: 2px" />
         
         <div class="row justify-content-center mb-3">
