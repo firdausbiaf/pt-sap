@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Data;
 use App\Models\Foto;
 use App\Models\Promo;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,6 +18,8 @@ class UserController extends Controller
             $data = Data::where('user_id', Auth::id())->paginate(10);
             $kavlings = Data::where('user_id', Auth::id())->pluck('kavling', 'id');
             $foto = Foto::whereIn('data_id', $data->pluck('id'))->latest()->get();
+            $video = Video::whereIn('data_id', $data->pluck('id'))->latest()->get();
+
 
             return view('user', [
                 'promo' => $promo,
@@ -24,6 +27,7 @@ class UserController extends Controller
                 'kavlings' => $kavlings,
                 'selectedKavlingId' => null,
                 'foto' => $foto,
+                'video' => $video,
             ]);
         }
 
@@ -44,11 +48,13 @@ class UserController extends Controller
 
                 $data = $data->paginate(10);
                 $foto = Foto::where('data_id', Auth::id())->get();
+                $video = Video::whereIn('data_id', $data->pluck('id'))->latest()->get();
                 $kavlings = Data::where('user_id', Auth::id())->pluck('kavling', 'id');
 
                 return view('user', [
                     'data' => $data,
                     'foto' => $foto,
+                    'video' => $video,
                     'kavlings' => $kavlings,
                     'selectedKavlingId' => $selectedKavlingId,
                 ]);

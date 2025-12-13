@@ -58,10 +58,10 @@ class VideoController extends Controller
         $request->validate([
             'lokasi' => 'required|string',
             'kavling' => 'required|string',
-            'video.*' => 'mimes:mp4,mov,avi,wmv,flv|max:200000', // max 200MB
+            'video.*' => 'nullable|mimes:mp4,webm|max:50000',
         ]);
 
-        // cari data_id berdasarkan lokasi + kavling
+        // Cari data_id
         $data = Data::where('lokasi', $request->lokasi)
                     ->where('kavling', $request->kavling)
                     ->first();
@@ -70,20 +70,24 @@ class VideoController extends Controller
             return back()->with('error', 'Data kavling tidak ditemukan.');
         }
 
-        // upload video (multiple)
+        // Upload video (boleh 1 atau banyak)
         if ($request->hasFile('video')) {
             foreach ($request->file('video') as $file) {
-                $path = $file->store('videos', 'public');
+
+                $namaFile = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('videos'), $namaFile);
 
                 Video::create([
                     'data_id' => $data->id,
-                    'video' => $path
+                    'video'   => $namaFile,
                 ]);
             }
         }
 
-        return redirect()->route('video.index')->with('success', 'Video berhasil ditambahkan.');
+        return redirect()->route('video.index')->with('success', 'Video berhasil ditambahkan!');
     }
+
+
 
     /**
      * Display the specified resource.

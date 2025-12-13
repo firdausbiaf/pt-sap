@@ -161,8 +161,85 @@
                                             </div>
                                         </div>
 
+                                        {{-- Video --}}
+
+                                        {{-- Video --}}
+                                        <div class="row mb-3" style="max-height: 500px; overflow: auto;">
+                                            <div class="bg-light rounded-card p-4">
+                                                <div class="row">
+                                                    <div class="card shadow">
+                                                        <div class="card-header py-3">
+                                                            <h6 class="m-0 font-weight-bold text-primary">VIDEO PROGRESS PEMBANGUNAN</h6>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="table-responsive col-md-10 mx-4 mt-1">
+                                                                <div class="tab-content mt-1" id="videoTabContent">
+                                                                    @foreach ($data as $item)
+                                                                        <div class="tab-pane fade" 
+                                                                            id="video-content-{{ $item->id }}" 
+                                                                            role="tabpanel">
+
+                                                                            @php
+                                                                                $itemVideo = $video
+                                                                                    ->where('data_id', $item->id)
+                                                                                    ->sortByDesc('created_at')
+                                                                                    ->take(3);
+                                                                            @endphp
+
+                                                                            <div class="row" style="width: 90%; margin-left: 30px">
+                                                                                <div class="col-md-12">
+                                                                                    <div id="progressVideoCarousel-{{ $item->id }}" 
+                                                                                        class="carousel slide" 
+                                                                                        data-bs-ride="carousel">
+
+                                                                                        <div class="carousel-inner">
+                                                                                            @if($itemVideo->count() == 0)
+                                                                                                <div class="d-flex justify-content-center align-items-center" style="height: 220px;">
+                                                                                                    <p class="text-muted">Belum ada video progress</p>
+                                                                                                </div>
+                                                                                            @else
+                                                                                                @foreach ($itemVideo as $v)
+                                                                                                    <div class="carousel-item @if($loop->first) active @endif">
+                                                                                                        <video controls style="width:100%; max-height:300px; object-fit:cover;">
+                                                                                                            <source src="{{ asset('videos/' . $v->video) }}" type="video/mp4">
+                                                                                                            Browser Anda tidak mendukung video.
+                                                                                                        </video>
+                                                                                                    </div>
+                                                                                                @endforeach
+                                                                                            @endif
+                                                                                        </div>
+
+                                                                                    </div>
+
+                                                                                    @if($itemVideo->count() > 1)
+                                                                                        <button class="carousel-control-prev" type="button"
+                                                                                            data-bs-target="#progressVideoCarousel-{{ $item->id }}"
+                                                                                            data-bs-slide="prev">
+                                                                                            <span class="carousel-control-prev-icon"></span>
+                                                                                        </button>
+
+                                                                                        <button class="carousel-control-next" type="button"
+                                                                                            data-bs-target="#progressVideoCarousel-{{ $item->id }}"
+                                                                                            data-bs-slide="next">
+                                                                                            <span class="carousel-control-next-icon"></span>
+                                                                                        </button>
+                                                                                    @endif
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    @endforeach
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                         {{-- Promo --}}
-                                        <div class="row mb-3 d-flex justify-content-center align-items-center">
+                                        {{-- <div class="row mb-3 d-flex justify-content-center align-items-center">
                                             <div class="row">
                                                 <div id="promoCarousel" class="carousel slide" data-bs-ride="carousel">
                                                     <div class="carousel-inner">
@@ -192,7 +269,7 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         
 
                                     </div>
@@ -235,6 +312,25 @@
 
         // Saat halaman dimuat, tampilkan foto berdasarkan tab pertama yang aktif
         showFotoByKavling(firstKavlingTab.attr('href').replace('#content-', ''));
+
+        
+
+        // Tampilkan video sesuai kavling
+        function showVideoByKavling(kavlingId) {
+            $('#videoTabContent .tab-pane').removeClass('show active');
+            $('#video-content-' + kavlingId).addClass('show active');
+        }
+
+        // Saat halaman pertama kali load
+        showVideoByKavling(firstKavlingTab.attr('href').replace('#content-', ''));
+
+        // Saat klik tab kavling
+        $('#kavlingTab .nav-link').on('click', function () {
+            const kavlingId = $(this).attr('href').replace('#content-', '');
+            showVideoByKavling(kavlingId);
+        });
+
+
 
         // Fungsi untuk menampilkan progress berdasarkan kavling yang dipilih
         function showProgresByKavling(kavlingId) {

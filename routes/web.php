@@ -30,6 +30,7 @@ use App\Http\Controllers\TugasController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PromoController;
 use App\Http\Controllers\SinghasariController;
+use App\Http\Controllers\VideoController;
 use App\Models\Singhasari;
 
 /*
@@ -130,6 +131,22 @@ Route::get('/open-batu', [BatuController::class, 'openBatu']);
 Route::resource('/admin/stok-dpark', DparkController::class)->middleware('checkRole:admin');
 Route::get('/sold-dpark', [DparkController::class, 'soldDpark']);
 Route::get('/open-dpark', [DparkController::class, 'openDpark']);
+
+
+// INDEX
+Route::get('/admin/video', [VideoController::class, 'index'])->name('video.index');
+
+// FILTER (kalau nanti dibutuhkan)
+Route::get('/admin/video/filter', [VideoController::class, 'filter'])->name('video.filter');
+
+// RESOURCE (tanpa index & filter)
+Route::resource('/admin/video', VideoController::class)->except(['index', 'filter']);
+
+// AJAX GET KAVLING
+Route::get('/get-kavlings-video', [VideoController::class, 'getKavlingsByLocation'])->name('video.get-kavlings');
+
+// OPTIONAL: API GET VIDEO BY LOKASI (kalau kamu pakai juga kayak foto)
+Route::get('/api/getVideosByLocation', [VideoController::class, 'getVideosByLocation'])->name('videos.getByLocation');
 
 
 
