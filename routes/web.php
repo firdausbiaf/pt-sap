@@ -22,6 +22,7 @@ use App\Http\Controllers\DashboardCategoryController;
 use App\Http\Controllers\DashboardTugasController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\DparkController;
+use App\Http\Controllers\DurasiProyekController;
 use App\Http\Controllers\FotoController;
 use App\Http\Controllers\IndexUserController;
 use App\Http\Controllers\LegalitasController;
@@ -46,6 +47,7 @@ use App\Models\Singhasari;
 
 
 Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::get('/home', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::get('/user', [UserController::class, 'index']);
 Route::get('/index/filter', [IndexController::class, 'filter'])->name('index.filter');
 
@@ -55,7 +57,7 @@ Route::get('/migration', function () {
     Artisan::call('storage:link');
 });
 
-Route::get('/home', [IndexUserController::class, 'index']);
+
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('checkRole');
 
@@ -89,11 +91,7 @@ Route::resource('/admin/member', DashboardUserController::class)->middleware('ch
 Route::resource('/admin/user', DashboardAdminController::class)->middleware('checkRole:admin');
 Route::resource('/admin/petugas', PetugasController::class)->middleware('checkRole:admin');
 
-Route::resource('/admin/kelas', DashboardCategoryController::class)->middleware('checkRole:admin');
 
-Route::resource('/admin/course', DashboardCourseController::class)->middleware('checkRole:admin');
-Route::resource('/admin/materi', DashboardMateriController::class)->middleware('checkRole:admin');
-Route::resource('/admin/tugas', DashboardTugasController::class)->middleware('checkRole:admin');
 Route::resource('/admin/data', DataController::class)->middleware('checkRole:admin');
 Route::get('/data/{id}/ktp', [DataController::class, 'viewKtp'])->name('data.view_ktp');
 Route::resource('/admin/promo', PromoController::class)->middleware('checkRole:admin');
@@ -149,27 +147,25 @@ Route::get('/get-kavlings-video', [VideoController::class, 'getKavlingsByLocatio
 Route::get('/api/getVideosByLocation', [VideoController::class, 'getVideosByLocation'])->name('videos.getByLocation');
 
 
+// INDEX
+Route::get('/admin/durasi-proyek', [DurasiProyekController::class, 'index'])
+    ->name('durasi-proyek.index');
 
-// Route::get('/materi/{id}', [DashboardMateriController::class, 'indexMateri']);
+// FILTER (opsional, disiapkan)
+Route::get('/admin/durasi-proyek/filter', [DurasiProyekController::class, 'filter'])
+    ->name('durasi-proyek.filter');
 
-// Route::get('/course', [CourseController::class, 'index']);
+// RESOURCE (tanpa index & filter)
+Route::resource(
+    '/admin/durasi-proyek',
+    DurasiProyekController::class
+)->except(['index', 'filter']);
 
-// Route::get('/course/{id}', [courseController::class, 'show']);
-
-// Route::resource('/transaksi', TransaksiController::class);
-
-// Route::post('/bayar', [TransaksiController::class, 'bayar']);
-// Route::get('/verifyTransaksi', [TransaksiController::class, 'verify']);
-
-// Route::get('/courseMember', [CourseMemberController::class, 'index']);
-
-// Route::get('/transaksiMember', [CourseMemberController::class, 'transaksi']);
-
-// Route::get('/myCourse/{id}', [MyCourseController::class, 'show']);
-// Route::get('/next/{id}', [MyCourseController::class, 'next']);
-// Route::get('/reset/{id}', [MyCourseController::class, 'reset']);
-
-// Route::get('/laporanTransaksi', [SertifikatController::class, '__invoke']);
+// AJAX GET KAVLING
+Route::get(
+    '/get-kavlings-durasi-proyek',
+    [DurasiProyekController::class, 'getKavlingsByLocation']
+)->name('durasi-proyek.get-kavlings');
 
 
 

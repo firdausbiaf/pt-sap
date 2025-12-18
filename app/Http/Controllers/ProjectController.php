@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tugas;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
-class DashboardTugasController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class DashboardTugasController extends Controller
      */
     public function index()
     {
-        $tugas = Tugas::paginate(8);
-        return view('dashboard.tugas.index', compact('tugas'));
+        //
     }
 
     /**
@@ -42,10 +41,10 @@ class DashboardTugasController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Project $project)
     {
         //
     }
@@ -53,42 +52,33 @@ class DashboardTugasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit(Project $project)
     {
-
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Project $project)
     {
-        $request->validate([
-        'nilai' => 'required|numeric',
-        ]);
-
-        $tugas = Tugas::where('id', $id)->first();
-        $tugas->nilai = $request->get('nilai');
-       
-        $tugas->save();
-
-        return redirect('/admin/tugas');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
         //
     }

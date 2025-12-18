@@ -73,6 +73,14 @@
               <span class="menu-title">Data Pembelian</span>
             </a>
           </li>
+          <li class="nav-item nav-category">Durasi Proyek</li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/durasi-proyek">
+              <i class="menu-icon mdi mdi-layers-outline"></i>
+              <span class="menu-title">Durasi Proyek</span>
+            </a>
+          </li>
+          <li class="nav-item nav-category">Stok</li>
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#stok" aria-expanded="false" aria-controls="stok">
               <i class="menu-icon mdi mdi-layers-outline"></i>
