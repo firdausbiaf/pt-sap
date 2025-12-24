@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Model;
+
 
 class User extends Authenticatable
 {
@@ -19,8 +19,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-    protected $table = 'users';
-    protected $primaryKey='id';
     protected $fillable = [
         'name',
         'email',
@@ -50,15 +48,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function course(){
-        return $this->hasMany(Course::class);
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class, 'project_users')
+            ->withPivot('type')
+            ->withTimestamps();
     }
 
-    public function transaksi(){
-        return $this->hasMany(Transaksi::class);
+    public function ownedProjects()
+    {
+        return $this->projects()->wherePivot('type', 'owner');
     }
 
-    public function tugas(){
-        return $this->hasMany(Tugas::class);
+    public function contractedProjects()
+    {
+        return $this->projects()->wherePivot('type', 'contractor');
     }
+
 }

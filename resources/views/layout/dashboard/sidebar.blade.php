@@ -66,6 +66,13 @@
               </ul>
             </div>
           </li>
+          <li class="nav-item nav-category">Data Proyek</li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/projects">
+              <i class="menu-icon mdi mdi-layers-outline"></i>
+              <span class="menu-title">Data Proyek</span>
+            </a>
+          </li>
           <li class="nav-item nav-category">Data</li>
           <li class="nav-item">
             <a class="nav-link" href="/admin/data">

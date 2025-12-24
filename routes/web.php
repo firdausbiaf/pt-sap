@@ -7,32 +7,21 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\CourseController;
-use App\Http\Controllers\MyCourseController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\TransaksiController;
-use App\Http\Controllers\SertifikatController;
-use App\Http\Controllers\CourseMemberController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardAdminController;
-use App\Http\Controllers\DashboardCourseController;
-use App\Http\Controllers\DashboardMateriController;
-use App\Http\Controllers\DashboardCategoryController;
-use App\Http\Controllers\DashboardTugasController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\DparkController;
 use App\Http\Controllers\DurasiProyekController;
 use App\Http\Controllers\FotoController;
-use App\Http\Controllers\IndexUserController;
 use App\Http\Controllers\LegalitasController;
 use App\Http\Controllers\PetugasController;
-use App\Http\Controllers\TugasController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PromoController;
 use App\Http\Controllers\SinghasariController;
 use App\Http\Controllers\VideoController;
-use App\Models\Singhasari;
 
 /*
 |--------------------------------------------------------------------------
@@ -169,4 +158,8 @@ Route::get(
 
 
 
-
+Route::middleware(['auth', 'checkRole:admin'])
+    ->prefix('admin')
+    ->group(function () {
+        Route::resource('projects', ProjectController::class);
+    });
